@@ -1,6 +1,6 @@
 from os import path as os_path
 
-PROJECT_PATH = os_path.abspath(os_path.split(__file__)[0])
+BASE_PATH = os_path.abspath(os_path.split(__file__)[0])
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -21,6 +21,8 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+TEST_RUNNER = 'runner.DiscoveryRunner'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -47,13 +49,13 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os_path.join(PROJECT_PATH, 'media')
+MEDIA_ROOT = os_path.join(BASE_PATH, 'media')
 MEDIA_URL = '/media/'
-STATIC_ROOT = os_path.join(PROJECT_PATH, 'static')
+STATIC_ROOT = os_path.join(BASE_PATH, 'static')
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 STATICFILES_DIRS = (
-    os_path.join(PROJECT_PATH, '../static/'),
+    os_path.join(BASE_PATH, '../static/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -90,7 +92,7 @@ ROOT_URLCONF = 'urls'
 WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATE_DIRS = (
-    os_path.join(PROJECT_PATH, 'templates'),
+    os_path.join(BASE_PATH, 'templates'),
 )
 
 INSTALLED_APPS = (
