@@ -1,7 +1,7 @@
 bookshelf
 =========
 
-Organize your book collection, in the cloud :)
+Organize your book collection in the cloud :)
 
 About
 -----
@@ -15,3 +15,11 @@ Install the requirements with ``pip``: ::
 
     pip install -r django/requirements.txt
 
+
+Tests
+-----
+
+After installing the requirements, execute: ::
+
+    cd django/app/
+    make test
