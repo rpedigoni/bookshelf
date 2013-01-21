@@ -8,8 +8,7 @@ class BookFactory(factory.Factory):
     FACTORY_FOR = Book
 
     title = factory.Sequence(lambda n: 'Pro Django {0}'.format(n))
-    isbn_10 = u'1430210478'
-    isbn_13 = u'978-1430210474'
+    isbn = u'9781430210474'
 
 
 class UserBookFactory(factory.Factory):
