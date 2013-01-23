@@ -13,7 +13,7 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'username'
 
     name = models.CharField(_('name'), max_length=128)
-    username = models.CharField(_('username'), max_length=20, unique=True)
+    username = models.CharField(_('username'), max_length=20, unique=True)  # TODO: usar regex field
     email = models.EmailField(_('e-mail'), unique=True)
 
     objects = UserManager()
