@@ -65,3 +65,7 @@ class UserCreationTestCase(TestCase):
         self.data.update({'username': 'duplicate'})
         response = self.client.post(reverse('accounts_registration'), self.data)
         self.assertContains(response, u'Erro ao processar formulário')
+
+    def test_user_login_after_registration(self):
+        self.client.post(reverse('accounts_registration'), self.data)
+        self.assertIn('_auth_user_id', self.client.session)
