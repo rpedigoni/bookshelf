@@ -17,4 +17,5 @@ urlpatterns = patterns(
         name='home',
     ),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^books/', include('books.urls')),
 )
