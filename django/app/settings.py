@@ -6,7 +6,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Renato', 'renatopedigoni@gmail.com'),
 )
 
 AUTH_USER_MODEL = 'accounts.User'
