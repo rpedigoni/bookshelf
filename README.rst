@@ -1,6 +1,8 @@
 bookshelf
 =========
 
+.. image:: https://api.travis-ci.org/rpedigoni/bookshelf.png
+
 Organize your book collection in the cloud :)
 
 About
