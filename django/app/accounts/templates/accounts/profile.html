@@ -1,0 +1,15 @@
+<h1>{{ object.username }}</h1>
+
+{% with object.book_set.all as book_list %}
+    {% if book_list %}
+        <h2>Books</h2>
+
+        <ul>
+            {% for book in book_list %}
+                <li>{{ book.title }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nothing here yet. <a href="#">Add your first book &raquo;</a></p>
+    {% endif %}
+{% endwith %}
