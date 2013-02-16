@@ -4,4 +4,9 @@ import views
 
 urlpatterns = patterns(
     '',
+    url(
+        r'^add/$',
+        views.BookCreationView.as_view(),
+        name='books_creation',
+    ),
 )

@@ -1,1 +1,12 @@
-bookshelf
+{% load i18n %}
+
+<h1>bookshelf</h1>
+
+<ul>
+    {% if not user.is_authenticated %}
+        <li><a href="{% url 'accounts_registration' %}">{% trans "Create an account" %}</a></li>
+        <li><a href="{% url 'accounts_login' %}">{% trans "Sign in" %}</a></li>
+    {% endif %}
+    <li><a href="{% url 'accounts_profile' username=user.username %}">{% trans "View profile" %}</a></li>
+    <li><a href="{% url 'books_creation' %}">{% trans "Add a book" %}</a></li>
+</ul>
