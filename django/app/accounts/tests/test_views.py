@@ -34,6 +34,17 @@ class UserLoginTestCase(TestCase):
         self.assertContains(response, LoginForm.error_messages['bad_credentials'])
 
 
+class UserProfileTestCase(TestCase):
+    def setUp(self):
+        super(UserProfileTestCase, self).setUp()
+        self.client = Client()
+
+    def test_user_profile_page(self):
+        user = UserFactory.create(username='testinguser')
+        response = self.client.get(reverse('accounts_profile', kwargs={'username': user.username}))
+        self.assertContains(response, user.username)
+
+
 class UserCreationTestCase(TestCase):
     def setUp(self):
         super(UserCreationTestCase, self).setUp()
