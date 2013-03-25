@@ -1,3 +1,4 @@
--e git+https://github.com/django/django.git#egg=django
+django==1.5
 coverage==3.6
 factory-boy==1.2.0
+south==0.7.6
