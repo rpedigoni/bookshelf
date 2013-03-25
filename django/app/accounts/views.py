@@ -1,7 +1,8 @@
 # coding: utf-8
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse
-from django.views.generic import FormView, DetailView
+from django.http import HttpResponseRedirect
+from django.views.generic import View, FormView, DetailView
 from forms import LoginForm, UserCreationForm
 from models import User
 
@@ -16,6 +17,12 @@ class LoginView(FormView):
     def form_valid(self, form):
         login(self.request, form.user_cache)
         return super(LoginView, self).form_valid(form)
+
+
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect(reverse('home'))
 
 
 class RegistrationView(FormView):
