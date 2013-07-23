@@ -1,15 +1,21 @@
+{% extends "base.html" %}
 {% load i18n %}
 
-<h1>bookshelf</h1>
+{% block title %}{% trans "Home" %} {{ block.super }}{% endblock %}
 
-<ul>
-    <li><a href="{% url 'books_creation' %}">{% trans "Add a book" %}</a></li>
+{% block content %}
+	<h1>bookshelf</h1>
 
-    {% if not user.is_authenticated %}
-        <li><a href="{% url 'accounts_registration' %}">{% trans "Create an account" %}</a></li>
-        <li><a href="{% url 'accounts_login' %}">{% trans "Sign in" %}</a></li>
-    {% else %}
-        <li><a href="{% url 'accounts_profile' username=user.username %}">{% trans "View profile" %}</a></li>
-        <li><a href="{% url 'accounts_logout' %}">{% trans "Logout" %}</a></li>
-    {% endif %}
-</ul>
+	<ul>
+	    <li><a href="{% url 'books_creation' %}">{% trans "Add a book" %}</a></li>
+
+	    {% if not user.is_authenticated %}
+	        <li><a href="{% url 'accounts_registration' %}">{% trans "Create an account" %}</a></li>
+	        <li><a href="{% url 'accounts_login' %}">{% trans "Sign in" %}</a></li>
+	    {% else %}
+	        <li><a href="{% url 'accounts_profile' username=user.username %}">{% trans "View profile" %}</a></li>
+	        <li><a href="{% url 'accounts_logout' %}">{% trans "Logout" %}</a></li>
+	    {% endif %}
+	</ul>
+
+{% endblock %}

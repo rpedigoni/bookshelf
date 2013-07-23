@@ -1,3 +1,5 @@
+{% load i18n %}
+
 {% if form.errors %}
     Erro ao processar formulário.
 {% endif %}
@@ -8,3 +10,5 @@
 
     <input type="submit" />
 </form>
+
+<a href="{% url "home" %}">{% trans "Return to main menu" %}</a>

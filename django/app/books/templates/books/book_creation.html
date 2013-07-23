@@ -1,14 +1,23 @@
+{% extends "base.html" %}
 {% load i18n %}
 
-<h1>{% trans "Add a book" %}</h1>
+{% block title %}{% trans "Add a book" %} {{ block.super }}{% endblock %}
 
-{% if form.errors %}
-    Erro ao processar formulário.
-{% endif %}
+{% block content %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+	<h1>{% trans "Add a book" %}</h1>
 
-    <input type="submit" />
-</form>
+	{% if form.errors %}
+	    {% trans "Form error" %}
+	{% endif %}
+
+	<form action="" method="post">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+
+	    <input type="submit" />
+	</form>
+
+	<a href="{% url "home" %}">{% trans "Return to main menu" %}</a>
+
+{% endblock %}

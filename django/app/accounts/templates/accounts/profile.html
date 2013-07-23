@@ -3,7 +3,7 @@
 
 {% with object.userbook_set.all as book_list %}
     {% if book_list %}
-        <h2>Books</h2>
+        <h2>Books ({{ book_list.count }})</h2>
 
         <ul>
             {% for userbook in book_list %}
@@ -14,4 +14,6 @@
     {% else %}
         <p>{% trans "No books here yet" %}. <a href="{% url 'books_creation' %}">{% trans "Add your first book &raquo;" %}</a></p>
     {% endif %}
+
+    <a href="{% url "home" %}">{% trans "Return to main menu" %}</a>
 {% endwith %}
