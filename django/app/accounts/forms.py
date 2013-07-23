@@ -12,7 +12,11 @@ class LoginForm(forms.Form):
     }
 
     username = forms.CharField(label=_('username'), max_length=20)
-    password = forms.CharField(label=_('password'), max_length=20)
+    password = forms.CharField(
+        label=_('password'),
+        max_length=20,
+        widget=forms.PasswordInput(),
+    )
 
     def clean(self, *args, **kwargs):
         cleaned_data = super(LoginForm, self).clean(*args, **kwargs)
